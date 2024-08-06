@@ -6,6 +6,11 @@ from . import database
 app = FastAPI()
 
 
+@app.get("/")
+async def healthcheck():
+    return {"status": "ok"}
+
+
 @app.post("/matches", response_model=Match)
 async def create_match(match: MatchCreate):
     return database.create_match(match)
