@@ -1,7 +1,8 @@
-// .devcontainer/devcontainer.json
 {
     "name": "FastAPI Dev Container",
-    "dockerComposeFile": "docker-compose.yml",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ], // Adjust this path if your docker-compose.yml is at the root level
     "service": "app",
     "workspaceFolder": "/code",
     "extensions": [
