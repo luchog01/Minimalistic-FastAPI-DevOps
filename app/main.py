@@ -5,13 +5,16 @@ from . import database
 
 app = FastAPI()
 
+
 @app.post("/matches", response_model=Match)
 async def create_match(match: MatchCreate):
     return database.create_match(match)
 
+
 @app.get("/matches", response_model=list[Match])
 async def get_matches():
     return database.get_matches()
+
 
 @app.get("/matches/{match_id}", response_model=Match)
 async def get_match(match_id: str):
