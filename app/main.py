@@ -1,4 +1,5 @@
 # app/main.py
+# Author: Luciano Garbarino
 from fastapi import FastAPI, HTTPException
 from .models import MatchCreate, Match
 from . import database
