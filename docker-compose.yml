@@ -20,16 +20,3 @@ services:
     image: redis:alpine # Uses the Redis image with the Alpine tag
     ports:
       - "6379:6379" # Maps port 6379 on the host to port 6379 on the container
-
-  test:
-    # The test service
-    build:
-      context: . # Builds the Docker image from the current directory (context)
-      dockerfile: Dockerfile.test # Specifies the Dockerfile to use for this service
-    environment:
-      - REDIS_HOST=redis # Sets the environment variable REDIS_HOST to 'redis'
-    volumes:
-      - ./app:/code/app # Maps the local ./app directory to /code/app in the container
-      - ./tests:/code/tests # Maps the local ./tests directory to /code/tests in the container
-    depends_on:
-      - redis # Specifies that the 'test' service depends on the 'redis' service
